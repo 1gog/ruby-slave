@@ -9,14 +9,16 @@ ENV MAVEN_VERSION=3.6.0 \
     PATH=$PATH:/opt/gradle/bin:/opt/maven/bin
 
 # Install system utils 
-RUN yum install -y git
+RUN yum install -y git unzip tar zip which && yum clean all -y && \
+ useradd -u 1001 -r -m -d ${HOME} -s /bin/nologin -c "Jenkins Slave" jenkins
+
 # Install Maven
 RUN cd /opt && curl -L -o mvn.tar.gz http://apache-mirror.rbc.ru/pub/apache/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz && \
     tar -xzf mvn.tar.gz && \
     mv apache-maven-3.6.0 maven && \
     rm -f mvn.tar.gz
+
 # Install Gradle
-RUN yum install unzip -y && yum clean all -y
 RUN curl -L -o gradle-${GRADLE_VERSION}-bin.zip https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && \
     unzip gradle-${GRADLE_VERSION}-bin.zip -d /opt && \
     rm -f gradle-${GRADLE_VERSION}-bin.zip && \
