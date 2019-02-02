@@ -15,5 +15,5 @@ if [ ! -z ${JENKINS_SECRET} ] && [ ! -z ${JENKINS_TUNNEL} ]; then
 	if [[ ! -z "${JENKINS_URL}" ]]; then 
 		URL="-url ${JENKINS_URL}"
 	fi
-	exec java ${JAVA_OPTS} -cp ${JAR} hudson.remoting.jnlp.Main -headless $TUNNEL $URL -jar-cache $HOME ${JENKINS_SECRET} ${HOME}
+	exec java ${JAVA_OPTS} -cp ${JAR} hudson.remoting.jnlp.Main -headless $TUNNEL $URL -jar-cache ${HOME} -workDir ${JENKINS_HOME} ${JENKINS_SECRET} ${JENKINS_NAME}
 fi
