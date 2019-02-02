@@ -27,8 +27,6 @@ RUN mkdir -p /opt/jenkins
 
 COPY entrypoint.sh /opt/jenkins/jenkins-slave.sh
 
-RUN 
-
 VOLUME $HOME/.m2
 VOLUME $HOME/.gradle
 
