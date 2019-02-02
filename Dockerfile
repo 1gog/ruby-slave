@@ -21,10 +21,13 @@ RUN curl -L -o gradle-${GRADLE_VERSION}-bin.zip https://services.gradle.org/dist
     mv /opt/gradle-${GRADLE_VERSION} /opt/gradle && \
     yum clean all -y && \
     mkdir -p $HOME/.m2 && \
-    mkdir -p $HOME/.gradle && \
-    mkdir -p /opt/jenkins
+    mkdir -p $HOME/.gradle
+
+RUN mkdir -p /opt/jenkins
 
 COPY entrypoint.sh /opt/jenkins/jenkins-slave.sh
+
+RUN 
 
 VOLUME $HOME/.m2
 VOLUME $HOME/.gradle
@@ -33,7 +36,9 @@ VOLUME $HOME/.gradle
 #ADD ./contrib/init.gradle $HOME/.gradle/
 
 RUN chown -R 1001:0 $HOME && \
-    chmod -R g+rw $HOME
+    chmod -R g+rw $HOME && \
+	chown -R 1001:0 /opt/jenkins && \
+	chmod -R g+rw /opt/jenkins
 
 USER 1001
 ENTRYPOINT ["/opt/jenkins/jenkins-slave.sh"]
