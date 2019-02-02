@@ -14,6 +14,7 @@ RUN cd /opt && curl -L -o mvn.tar.gz http://apache-mirror.rbc.ru/pub/apache/mave
     mv apache-maven-3.6.0 maven && \
     rm -f mvn.tar.gz
 # Install Gradle
+RUN yum install unzip -y && yum clean all -y
 RUN curl -L -o gradle-${GRADLE_VERSION}-bin.zip https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip && \
     unzip gradle-${GRADLE_VERSION}-bin.zip -d /opt && \
     rm -f gradle-${GRADLE_VERSION}-bin.zip && \
