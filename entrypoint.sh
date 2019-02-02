@@ -2,7 +2,7 @@
 
 export HOME=/home/jenkins
 export JENKINS_HOME=$HOME
-
+export JAR="$HOME/agent.jar"
 if [ ! -e ${HOME}/agent.jar ]; then
 	curl -o ${HOME}/agent.jar --cacert /run/secrets/kubernetes.io/serviceaccount/ca.crt \
 	${JENKINS_URL}/jnlpJars/agent.jar
@@ -13,7 +13,7 @@ if [ ! -z ${JENKINS_SECRET} ] && [ ! -z ${JENKINS_TUNNEL} ]; then
 	TUNNEL="-tunnel ${JENKINS_TUNNEL}"
 
 	if [[ ! -z "${JENKINS_URL}" ]]; then 
-		URL="${JENKINS_URL}"
+		URL="-url ${JENKINS_URL}"
 	fi
-	exec java ${JAVA_OPTS} -cp $JAR hudson.remoting.jnlp.Main -headless $TUNNEL $URL -jar-cache $HOME ${JENKIS_SECRET} ${HOME}
+	exec java ${JAVA_OPTS} -cp ${JAR} hudson.remoting.jnlp.Main -headless $TUNNEL $URL -jar-cache $HOME ${JENKIS_SECRET} ${HOME}
 fi
