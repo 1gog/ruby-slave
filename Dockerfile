@@ -1,4 +1,4 @@
-FROM jdk:10.0.2
+FROM 1gog/jdk:10.0.2
 
 MAINTAINER Mirzuev Anatoliy <amirzuev@neoflex.ru>
 
