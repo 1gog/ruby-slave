@@ -29,8 +29,8 @@ COPY entrypoint.sh /opt/jenkins/jenkins-slave.sh
 VOLUME $HOME/.m2
 VOLUME $HOME/.gradle
 
-ADD ./contrib/settings.xml $HOME/.m2/
-ADD ./contrib/init.gradle $HOME/.gradle/
+#ADD ./contrib/settings.xml $HOME/.m2/
+#ADD ./contrib/init.gradle $HOME/.gradle/
 
 RUN chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
