@@ -8,6 +8,8 @@ ENV MAVEN_VERSION=3.6.0 \
     JAVA_HOME=/usr/java/jdk-10.0.2/ \
     PATH=$PATH:/opt/gradle/bin:/opt/maven/bin
 
+# Install system utils 
+RUN yum install -y git
 # Install Maven
 RUN cd /opt && curl -L -o mvn.tar.gz http://apache-mirror.rbc.ru/pub/apache/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz && \
     tar -xzf mvn.tar.gz && \
