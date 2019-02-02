@@ -1,0 +1,1 @@
+Maven slave for OpenShift
