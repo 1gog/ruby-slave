@@ -30,7 +30,7 @@ RUN curl -L -o gradle-${GRADLE_VERSION}-bin.zip https://services.gradle.org/dist
 RUN mkdir -p /opt/jenkins
 
 COPY entrypoint.sh /opt/jenkins/jenkins-slave.sh
-
+RUN chmod g+rw /etc/passs
 #VOLUME $HOME/.m2
 #VOLUME $HOME/.gradle
 VOLUME $HOME
