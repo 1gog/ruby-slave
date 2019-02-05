@@ -33,7 +33,7 @@ COPY entrypoint.sh /opt/jenkins/jenkins-slave.sh
 
 #VOLUME $HOME/.m2
 #VOLUME $HOME/.gradle
-
+VOLUME $HOME
 #ADD ./contrib/settings.xml $HOME/.m2/
 #ADD ./contrib/init.gradle $HOME/.gradle/
 WORKDIR /home/jenkins 
