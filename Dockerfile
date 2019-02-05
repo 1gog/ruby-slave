@@ -6,6 +6,7 @@ ENV MAVEN_VERSION=3.6.0 \
     GRADLE_VERSION=5.1.1 \
     HOME=/home/jenkins \
     JAVA_HOME=/usr/java/jdk-10.0.2/ \
+    MAVEN_HOME=/opt/maven/bin \
     PATH=$PATH:/opt/gradle/bin:/opt/maven/bin
 
 # Install system utils 
