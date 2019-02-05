@@ -10,7 +10,7 @@ ENV MAVEN_VERSION=3.6.0 \
 
 # Install system utils 
 RUN yum install -y git unzip tar zip which && yum clean all -y && \
- useradd -u 1001 -r -m -d ${HOME} -s /bin/nologin -c "Jenkins Slave" jenkins
+ useradd -u 1001 -r -m -d ${HOME} -c "Jenkins Slave" jenkins
 
 # Install Maven
 RUN cd /opt && curl -L -o mvn.tar.gz http://apache-mirror.rbc.ru/pub/apache/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz && \
