@@ -11,8 +11,7 @@ GROUP_ID=$(id -g)
 
 if [ x"$USER_ID" != x"0" ]; then
 
-    echo "default:x:${USER_ID}:${GROUP_ID}:Jenkins Slave:${HOME}:/sbin/nologin" >> /tmp/passwd
-    echo "default:*:${GROUP_ID}:" >> /tmp/group
+    echo "default:x:${USER_ID}:${GROUP_ID}:Jenkins Slave:${HOME}:/sbin/nologin" >> /etc/passwd
 fi
 
 # step 2
