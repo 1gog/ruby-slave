@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# fix nss_wrapper
+export NSS_WRAPPER_PASSWD=/tmp/passwd
+export NSS_WRAPPER_GROUP=/tmp/group
 
 # step 1
 # Set current user in nss_wrapper
@@ -8,8 +11,8 @@ GROUP_ID=$(id -g)
 
 if [ x"$USER_ID" != x"0" ]; then
 
-    echo "default:x:${USER_ID}:${GROUP_ID}:Default Application User:${HOME}:/sbin/nologin" >> /etc/passwd
-
+    echo "default:x:${USER_ID}:${GROUP_ID}:Jenkins Slave:${HOME}:/sbin/nologin" >> /tmp/passwd
+    echo "default:*:${GROUP_ID}:" >> /tmp/group
 fi
 
 # step 2
