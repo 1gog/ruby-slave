@@ -1,2 +1,3 @@
-NodeJS slave for OpenShift
-Image ready to use
+# Ruby slave for OpenShift
+
+
