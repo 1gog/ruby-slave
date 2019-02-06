@@ -1,2 +1,2 @@
-Maven slave for OpenShift
+NodeJS slave for OpenShift
 Image ready to use
