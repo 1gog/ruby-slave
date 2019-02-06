@@ -3,7 +3,7 @@ FROM 1gog/jdk:10.0.2
 MAINTAINER Mirzuev Anatoliy <amirzuev@neoflex.ru>
 
 ENV HOME=/home/jenkins \
-    JAVA_HOME=/usr/java/jdk-10.0.2/ \
+    JAVA_HOME=/usr/java/jdk-10.0.2/ 
 
 
 # Install system utils 
